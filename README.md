@@ -43,4 +43,4 @@ Authentication is enforced using an API password that is checked before executin
 
 ## Future Improvements
 
-- Add the ability to stop the Minecraft Bedrock Server.
+- Add the ability to stop the Minecraft Bedrock Server without just killing the process (Data Corruption may occur)
