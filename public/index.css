@@ -1,0 +1,174 @@
+/* Base styles */
+body {
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 90%;
+    padding: 10px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto; /* Center the container */
+}
+
+#titleBox {
+    height: auto; /* Adjusts to content height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title {
+    margin: 5px;
+    font-size: 2rem; /* Scales with viewport size */
+}
+
+#apiPassword {
+    margin-top: 10px;
+    font-size: 1.2rem; /* Scales with viewport size */
+    text-align: center;
+}
+
+#consoleBox {
+    background-color: #1e1e1e;
+    color: #00ff00;
+    overflow-y: auto;
+    font-size: 1rem; /* Scales with viewport size */
+    height: 50vh; /* Makes the console box taller */
+    margin-top: 20px; /* Adds spacing above the console box */
+    margin-bottom: 20px; /* Adds spacing below the console box */
+}
+
+.statusContainer {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #ae1414;
+    color: white;
+    border: 2px solid #1e1e1e;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Scales with viewport size */
+    font-weight: bold;
+    text-align: center;
+    margin: 5px; /* Space between status elements */
+}
+
+#buttonContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line */
+    justify-content: space-between; /* Distributes space between groups */
+    border: 1px solid #444;
+}
+
+.button-group {
+    flex: 1 1 100%; /* Allows each group to take full width initially */
+    margin-bottom: 20px; /* Space below each button group */
+}
+
+.button-group h2 {
+    font-size: 1.5rem; /* Heading font size */
+    margin: 0 0 10px 0; /* Margin below heading */
+    text-align: center; /* Center the heading text */
+}
+
+button {
+    padding: 12px 16px; /* Increase button height */
+    font-size: 1.1rem; /* Slightly larger font size */
+    cursor: pointer;
+    margin: 5px; /* Space between buttons */
+    display: block;
+    width: 100%; /* Make buttons full width in their container */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    border: 2px solid #444; /* Add a border to make buttons visible */
+    background-color: transparent; /* Remove background color */
+    color: #444; /* Set text color */
+    transition: all 0.3s ease; /* Smooth transition for hover and active effects */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Hover Effect */
+button:hover {
+    background-color: #ddd; /* Light background on hover */
+    color: #333; /* Darker text color on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+/* Click Effect */
+button:active {
+    transform: scale(0.98); /* Slightly smaller when clicked */
+    background-color: #bbb; /* Slightly darker background when clicked */
+}
+
+/* Thematic styles */
+.minecraft button {
+    color: #4c8cff; /* Example color for Minecraft buttons */
+}
+
+.plex button {
+    color: #006c76; /* Example color for Plex buttons */
+}
+
+.parsec button {
+    color: #8f00ff; /* Example color for Parsec buttons */
+}
+
+.sunshine button {
+    color: #f6c542; /* Example color for Sunshine buttons */
+}
+
+.logs button {
+    color: #333; /* Example color for Log buttons */
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 768px) { /* Tablets and below */
+    #title {
+        font-size: 1.5rem;
+    }
+
+    #apiPassword {
+        font-size: 1rem;
+    }
+
+    #consoleBox {
+        font-size: 0.9rem;
+        height: 40vh; /* Adjust height for tablets */
+        margin-bottom: 15px; /* Adjust spacing for tablets */
+    }
+
+    .statusContainer {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 1rem; /* Adjust font size for tablets */
+    }
+}
+
+@media (max-width: 480px) { /* Phones */
+    #title {
+        font-size: 1.2rem;
+    }
+
+    #apiPassword {
+        font-size: 0.9rem;
+    }
+
+    #consoleBox {
+        font-size: 0.8rem;
+        height: 30vh; /* Adjust height for phones */
+        margin-bottom: 10px; /* Adjust spacing for phones */
+    }
+
+    .statusContainer {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem; /* Adjust font size for phones */
+        padding: 10px 14px; /* Adjust padding for phones */
+    }
+}
