@@ -2,9 +2,9 @@
 
 ## Overview
 
-This document provides a comprehensive overview of the API exposed by the
+This document provides an overview of the API exposed by the
 Express.js application. The API includes endpoints for managing system
-processes, Minecraft Bedrock servers, and log files. It also integrates
+processes, a Minecraft Bedrock Server, and a log file. It also utilizes
 PowerShell scripts for executing various commands and managing system state.
 
 ## Server Configuration
