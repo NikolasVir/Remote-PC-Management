@@ -22,7 +22,7 @@ This project enables the remote management of a personal computer through a web 
 - **PowerShell**: Used for executing system-level commands such as starting, stopping, and checking the status of processes.
 
 ## REST API
-Details about the API can be found in the doc/API.md file.
+Details about the API can be found in the [doc/API.md](https://github.com/NikolasVir/Remote-PC-Management/blob/master/docs/API.md) file.
 
 ## Usage
 
