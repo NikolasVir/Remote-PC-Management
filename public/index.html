@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPC Management</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+
+    <div id="titleBox" class="container">
+        <h1 id="title">NPC Management</h1>
+
+        <form onsubmit="return false;" id="apiPassword">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </form>
+    </div>
+
+    <div id="statusBox" class="container">
+        <div id="Plex Media Server" class="statusContainer">Plex</div>
+        <div id="parsecd" class="statusContainer">Parsec</div>
+        <div id="sunshine" class="statusContainer">Sunshine</div>
+        <div id="bedrock_server" class="statusContainer">Minecraft Bedrock Server</div>
+    </div>
+
+    <div id="buttonContainer" class="container">
+        <div class="button-group minecraft">
+            <h2>Minecraft</h2>
+            <button id="StartMCServer" class="script-button">Start Minecraft Bedrock Server</button>
+            <button id="StopMCServer" class="script-button">TODO Stop Minecraft Bedrock Server</button>
+            <button id="StartMCBackup" class="script-button">Start Minecraft Bedrock Server Backup</button>
+        </div>
+        <div class="button-group plex">
+            <h2>Plex</h2>
+            <button id="StartPlex" class="script-button">Start Plex</button>
+            <button id="StopPlex" class="script-button">Stop Plex</button>
+        </div>
+        <div class="button-group parsec">
+            <h2>Parsec</h2>
+            <button id="StartParsec" class="script-button">Start Parsec</button>
+            <button id="StopParsec" class="script-button">Stop Parsec</button>
+        </div>
+        <div class="button-group sunshine">
+            <h2>Sunshine</h2>
+            <button id="StartSunshine" class="script-button">Start Sunshine</button>
+            <button id="StopSunshine" class="script-button">Stop Sunshine</button>
+        </div>
+        <div class="button-group logs">
+            <h2>Logs</h2>
+            <button id="GetLog" class="script-button">Get Log</button>
+            <button id="ClearConsole" class="script-button">Clear Console</button>
+        </div>
+    </div>
+
+    <div id="consoleBox" class="container"></div>
+</body>
+
+</html>
