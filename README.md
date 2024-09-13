@@ -1,4 +1,4 @@
-# Project: Remote PC Management
+# Remote PC Management
 
 ## Overview
 
