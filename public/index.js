@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttonStartMCServer = document.getElementById("StartMCServer");
     const buttonStopMCServer = document.getElementById("StopMCServer");
     const buttonStartMCBackup = document.getElementById("StartMCBackup");
+    const buttonUpdateMCServer = document.getElementById("UpdateMCServer");
     const buttonGetLog = document.getElementById("GetLog");
     const buttonClearConsole = document.getElementById("ClearConsole");
 
@@ -293,6 +294,35 @@ document.addEventListener('DOMContentLoaded', function () {
         let apiPassword = document.getElementById('password').value;
 
         fetch('/mc-server/backup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-API-Password': apiPassword
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    // Handle unauthorized errors
+                    if (response.status === 401) {
+                        throw new Error('Unauthorized: Incorrect password');
+                    }
+                    throw new Error(`Request failed with status ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                consoleLog(data.output, "#00ff00");
+            })
+            .catch(error => {
+                let error_output = `Error: ${error.message}`;
+                consoleLog(error_output, "red");
+            });
+    });
+
+    buttonUpdateMCServer.addEventListener('click', () => {
+        let apiPassword = document.getElementById('password').value;
+
+        fetch('/mc-server/update', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
