@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttonStopPlex = document.getElementById("StopPlex");
     const buttonStartParsec = document.getElementById("StartParsec");
     const buttonStopParsec = document.getElementById("StopParsec");
-    const buttonStartSunshine = document.getElementById("StartSunshine");
-    const buttonStopSunshine = document.getElementById("StopSunshine");
     const buttonStartMCServer = document.getElementById("StartMCServer");
     const buttonStopMCServer = document.getElementById("StopMCServer");
     const buttonStartMCBackup = document.getElementById("StartMCBackup");
@@ -125,78 +123,6 @@ document.addEventListener('DOMContentLoaded', function () {
         let apiPassword = document.getElementById('password').value;
 
         let processNames = ["pservice", "parsecd"];
-
-        for (const processName of processNames) {
-            fetch('/process/stop', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-API-Password': apiPassword
-                },
-                body: JSON.stringify({
-                    processName: processName
-                })
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        // Handle unauthorized errors
-                        if (response.status === 401) {
-                            throw new Error('Unauthorized: Incorrect password');
-                        }
-                        throw new Error(`Request failed with status ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    consoleLog(data.output, "#00ff00");
-                })
-                .catch(error => {
-                    let error_output = `Error: ${error.message}`;
-                    consoleLog(error_output, "red");
-                });
-        }
-    });
-
-    // Parsec
-
-    buttonStartSunshine.addEventListener('click', () => {
-        let apiPassword = document.getElementById('password').value;
-
-        let executablePath = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Sunshine\\Sunshine.lnk";
-
-        fetch('/process/start', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-API-Password': apiPassword
-            },
-            body: JSON.stringify({
-                executablePath: executablePath
-            })
-        })
-            .then(response => {
-                if (!response.ok) {
-                    // Handle unauthorized errors
-                    if (response.status === 401) {
-                        throw new Error('Unauthorized: Incorrect password');
-                    }
-                    throw new Error(`Request failed with status ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                consoleLog(data.output, "#00ff00");
-            })
-            .catch(error => {
-                let error_output = `Error: ${error.message}`;
-                consoleLog(error_output, "red");
-            });
-    });
-
-    buttonStopSunshine.addEventListener('click', () => {
-        let apiPassword = document.getElementById('password').value;
-
-        let processNames = ["sunshine", "sunshinesvc"];
 
         for (const processName of processNames) {
             fetch('/process/stop', {
