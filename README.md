@@ -7,7 +7,7 @@ This project enables the remote management of a personal computer through a web 
 ## Features
 
 - **Application Management**: Start and stop applications such as Plex, Parsec, and Sunshine remotely.
-- **Minecraft Bedrock Server Control**: Start the Minecraft Bedrock server, stop it, and initiate server backups from the web interface.
+- **Minecraft Bedrock Server Control**: Start the Minecraft Bedrock server, stop it, and initiate server backups or updates from the web interface.
 - **Real-time Process Monitoring**: View the running state of applications with live status updates.
 - **Server Log Management**: Fetch and view log files or add new log entries.
 - **Console Display**: Output messages to a web-based console for easy monitoring and logging of activities.
