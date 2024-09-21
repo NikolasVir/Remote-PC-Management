@@ -163,6 +163,19 @@ app.post('/mc-server/backup', (req, res) => {
     });
 });
 
+// POST: execute the Get-MCUpdate PwSh script
+app.post('/mc-server/update', (req, res) => {
+
+    addLog(`/mc-server/update requested by: ${req.ip}`);
+
+    const scriptPath = "private/scripts/Start-MCUpdate.ps1";
+    const args = "";
+
+    executePwshScript(scriptPath, args, (result) => {
+        res.json(result);
+    });
+});
+
 // Logfile Management
 
 // GET: serve the server log file
