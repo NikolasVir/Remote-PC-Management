@@ -168,7 +168,7 @@ app.post('/mc-server/update', (req, res) => {
 
     addLog(`/mc-server/update requested by: ${req.ip}`);
 
-    const scriptPath = "private/scripts/Start-MCUpdate.ps1";
+    const scriptPath = "private/scripts/Get-MCUpdate.ps1";
     const args = "";
 
     executePwshScript(scriptPath, args, (result) => {
