@@ -35,7 +35,7 @@ PowerShell scripts for executing various commands and managing system state.
 - **Query Parameters:**
   - `processName` (string): Name of the process to check.
 - **PowerShell Script:** `Get-RunningState.ps1`
-- **Script Path:** `G:\\PowerShell Scripts\\Get-RunningState.ps1`
+- **Script Path:** `PowerShell Scripts\\Get-RunningState.ps1`
 - **Response:** JSON object containing the process state or error message.
 
 #### Start Process
@@ -45,7 +45,7 @@ PowerShell scripts for executing various commands and managing system state.
 - **Request Body:**
   - `executablePath` (string): Path to the executable to start.
 - **PowerShell Script:** `Start-Process.ps1`
-- **Script Path:** `G:\\PowerShell Scripts\\Start-Process.ps1`
+- **Script Path:** `PowerShell Scripts\\Start-Process.ps1`
 - **Response:** JSON object with the result of the operation.
 
 #### Stop Process
@@ -55,7 +55,7 @@ PowerShell scripts for executing various commands and managing system state.
 - **Request Body:**
   - `processName` (string): Name of the process to stop.
 - **PowerShell Script:** `Stop-Process.ps1`
-- **Script Path:** `G:\\PowerShell Scripts\\Stop-Process.ps1`
+- **Script Path:** `PowerShell Scripts\\Stop-Process.ps1`
 - **Response:** JSON object with the result of the operation.
 
 ### 3. Minecraft Bedrock Server Management
@@ -65,7 +65,7 @@ PowerShell scripts for executing various commands and managing system state.
 - **POST** `/mc-server/start`
 - **Description:** Starts the Minecraft Bedrock server.
 - **PowerShell Script:** `Start-MCServer.ps1`
-- **Script Path:** `G:\\PowerShell Scripts\\Start-MCServer.ps1`
+- **Script Path:** `PowerShell Scripts\\Start-MCServer.ps1`
 - **Response:** JSON object with the result of the operation.
 
 #### Stop Minecraft Server
@@ -73,7 +73,7 @@ PowerShell scripts for executing various commands and managing system state.
 - **POST** `/mc-server/stop`
 - **Description:** Stops the Minecraft Bedrock server.
 - **PowerShell Script:** `Stop-MCServer.ps1`
-- **Script Path:** `G:\\PowerShell Scripts\\Stop-MCServer.ps1`
+- **Script Path:** `PowerShell Scripts\\Stop-MCServer.ps1`
 - **Response:** JSON object with the result of the operation.
 
 #### Backup Minecraft Server
@@ -81,7 +81,15 @@ PowerShell scripts for executing various commands and managing system state.
 - **POST** `/mc-server/backup`
 - **Description:** Initiates a backup for the Minecraft Bedrock server.
 - **PowerShell Script:** `Start-MCBackup.ps1`
-- **Script Path:** `G:\\PowerShell Scripts\\Start-MCBackup.ps1`
+- **Script Path:** `PowerShell Scripts\\Start-MCBackup.ps1`
+- **Response:** JSON object with the result of the operation.
+
+#### Update Minecraft Server
+
+- **POST** `/mc-server/update`
+- **Description:** Initiates an update for the Minecraft Bedrock server.
+- **PowerShell Script:** `Get-MCUpdate.ps1`
+- **Script Path:** `PowerShell Scripts\\Start-MCUpdate.ps1`
 - **Response:** JSON object with the result of the operation.
 
 ### 4. Logfile Management
@@ -99,9 +107,9 @@ PowerShell scripts for executing various commands and managing system state.
 - **Request Body:**
   - `logContent` (string): Content to append to the log file.
 - **PowerShell Script:** `Add-Log.ps1`
-- **Script Path:** `G:\\PowerShell Scripts\\Add-Log.ps1`
+- **Script Path:** `\\PowerShell Scripts\\Add-Log.ps1`
 - **Arguments:** 
-  - `-filePath "G:\\NodeJS\\WebManager\\node-console-app\\consoleLog.txt"`
+  - `-filePath "\\NodeJS\\WebManager\\node-console-app\\consoleLog.txt"`
   - `-stringToAppend "${logContent}"`
 - **Response:** JSON object with the result of the operation.
 
@@ -125,10 +133,3 @@ function executePwshScript(scriptPath, args, callback)
 - Constructs the PowerShell command with `-ExecutionPolicy Bypass` for script
   execution.
 - Handles output and errors, passing results to the callback function.
-
-## Notes
-
-- Ensure that the PowerShell scripts are correctly located at the specified
-  paths.
-- Error handling in the script execution is minimal; it logs errors to the
-  console and returns them in the response.
