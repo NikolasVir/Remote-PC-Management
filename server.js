@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const { exec } = require('child_process');
 require('dotenv').config();
+const axios = require('axios');
 
 const apiPassword = process.env.PASSWORD;
 
@@ -23,6 +24,17 @@ app.get('/', (req, res) => {
 // Endpoints
 
 // Helper function
+
+// Function to get the public IP
+async function getPublicIP() {
+    try {
+        const response = await axios.get('https://api.ipify.org?format=json');
+        return response.data.ip;
+    } catch (error) {
+        console.error('Error fetching public IP:', error);
+        return null;
+    }
+}
 
 // Executes a PowerShell script
 function executePwshScript(scriptPath, args, callback) {
@@ -211,6 +223,7 @@ app.post('/shutdown', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+app.listen(port, async () => {
+    const ip = await getPublicIP();
+    console.log(`Server running at: http://${ip}:${port}`);
 });
